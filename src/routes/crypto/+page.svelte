@@ -5,11 +5,13 @@
 	import KeyValueTable from '$lib/components/KeyValueTable.svelte';
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import CryptoTxList from '$lib/components/CryptoTxList.svelte';
-	import { analyzeAddress, checksumLabel, typeLabel } from '$lib/crypto/address.js';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
+	import { analyzeAddress } from '$lib/crypto/address.js';
 	import { CHAINS } from '$lib/crypto/chains.js';
-	import { formatAmount } from '$lib/crypto/format.js';
+	import { detectionRows, summaryRows } from '$lib/crypto/rows.js';
+	import { buildCryptoReport } from '$lib/crypto/report.js';
 	import { traceAddress } from '$lib/crypto/trace.js';
-	import { formatNumber, t } from '$lib/i18n/i18n.svelte.js';
+	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	const SHOWN_TXS = 10;
 
@@ -59,48 +61,16 @@
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 
-	/** @param {Date | null} date */
-	function formatDate(date) {
-		return date ? date.toISOString().slice(0, 16).replace('T', ' ') + ' UTC' : null;
-	}
+	let detection = $derived(target && chain ? detectionRows(target, chain) : []);
+	let summary = $derived(data && chain ? summaryRows(data, chain) : []);
 
-	let detectionRows = $derived(
-		target && chain
-			? [
-					{ label: t('crypto.row.chain'), value: chain.name },
-					{ label: t('crypto.row.type'), value: typeLabel(target.type) },
-					{ label: t('crypto.row.checksum'), value: checksumLabel(target.checksumKind) }
-				]
-			: []
-	);
-
-	let summaryRows = $derived(
-		data && chain
-			? [
-					{ label: t('crypto.row.balance'), value: formatAmount(data.balance, chain) },
-					{
-						label: t('crypto.row.received'),
-						value: data.received === null ? null : formatAmount(data.received, chain)
-					},
-					{
-						label: t('crypto.row.sent'),
-						value: data.sent === null ? null : formatAmount(data.sent, chain)
-					},
-					{
-						label: t('crypto.row.txs'),
-						value: data.pendingTxCount
-							? t('crypto.txCountUnconfirmed', {
-									count: formatNumber(data.txCount),
-									pending: formatNumber(data.pendingTxCount)
-								})
-							: formatNumber(data.txCount)
-					},
-					{ label: t('crypto.row.firstSeen'), value: formatDate(data.firstSeen) },
-					{ label: t('crypto.row.lastSeen'), value: formatDate(data.lastSeen) },
-					...data.extra
-				]
-			: []
-	);
+	const buildReport = () =>
+		buildCryptoReport({
+			target: target,
+			chain: chain,
+			data,
+			error
+		});
 </script>
 
 <PageMeta
@@ -125,6 +95,9 @@
 	{:else}
 		<p class="hint">{t('crypto.sourcesHint')}</p>
 	{/if}
+	{#if target && chain}
+		<ExportMenu build={buildReport} />
+	{/if}
 </section>
 
 {#if target && chain}
@@ -135,9 +108,9 @@
 				<CopyButton value={target.address} label={t('crypto.copyAddress')} />
 			</div>
 			<p class="address">{target.address}</p>
-			<KeyValueTable rows={detectionRows} />
+			<KeyValueTable rows={detection} />
 			{#if data}
-				<KeyValueTable rows={summaryRows} />
+				<KeyValueTable rows={summary} />
 			{:else if busy}
 				<p class="hint">{t('crypto.loadingData')}</p>
 			{/if}

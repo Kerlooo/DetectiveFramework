@@ -1,7 +1,7 @@
 <script>
 	import KeyValueTable from '$lib/components/KeyValueTable.svelte';
 	import CopyButton from '$lib/components/CopyButton.svelte';
-	import { counterLabel, typeLabel } from '$lib/telegram/validate.js';
+	import { profileRows } from '$lib/telegram/rows.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/**
@@ -9,19 +9,7 @@
 	 */
 	let { profile } = $props();
 
-	let rows = $derived([
-		{ label: t('telegram.row.type'), value: typeLabel(profile.type) },
-		{ label: t('telegram.row.username'), value: `@${profile.username}` },
-		{ label: t('telegram.row.link'), value: profile.url, href: profile.url },
-		...profile.extra.map((value, i) => ({
-			label: i ? t('telegram.row.infoN', { n: i + 1 }) : t('telegram.row.info'),
-			value
-		})),
-		...Object.entries(profile.counters).map(([label, value]) => ({
-			label: counterLabel(label),
-			value
-		}))
-	]);
+	let rows = $derived(profileRows(profile));
 </script>
 
 <article class="card">

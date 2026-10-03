@@ -9,10 +9,13 @@
 	import EmailVerdict from '$lib/components/EmailVerdict.svelte';
 	import EmailMxList from '$lib/components/EmailMxList.svelte';
 	import EmailGravatar from '$lib/components/EmailGravatar.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { analyzeAddress, parseEmail } from '$lib/email/address.js';
 	import { checkDisposable, DISPOSABLE_LIST_SOURCE } from '$lib/email/disposable.js';
 	import { lookupMailServer } from '$lib/email/mail-server.js';
 	import { gravatarAvatarUrl, gravatarHash, lookupGravatarProfile } from '$lib/email/gravatar.js';
+	import { addressRows } from '$lib/email/rows.js';
+	import { buildEmailReport } from '$lib/email/report.js';
 	import { formatNumber, t } from '$lib/i18n/i18n.svelte.js';
 
 	/**
@@ -96,6 +99,15 @@
 		);
 	}
 
+	const buildReport = () =>
+		buildEmailReport({
+			target: target,
+			address: address,
+			disposable,
+			mail,
+			gravatar
+		});
+
 	// Other tools link here with ?q=...; the static page reads it in the browser.
 	onMount(() => {
 		const q = new URLSearchParams(window.location.search).get('q')?.trim();
@@ -127,30 +139,15 @@
 			{t('email.privacyNote')}
 		{/if}
 	</p>
+	{#if target && address}
+		<ExportMenu build={buildReport} />
+	{/if}
 </section>
 
 {#if target && address}
 	<div class="results">
 		<EmailSection id="email-address-heading" title={t('email.address.title')}>
-			<KeyValueTable
-				rows={[
-					{ label: t('email.address.normalized'), value: target.email },
-					{ label: t('email.address.local'), value: address.local },
-					{ label: t('email.address.tag'), value: address.tag },
-					{ label: t('email.address.domain'), value: address.domain },
-					{ label: t('email.address.syntax'), value: t('email.address.valid') },
-					{
-						label: t('email.address.freeProvider'),
-						value: address.freeProvider
-							? t('email.address.freeYes', { provider: address.freeProvider })
-							: t('email.address.freeNo')
-					},
-					{
-						label: t('email.address.role'),
-						value: address.role ? t('email.address.roleYes') : t('email.address.roleNo')
-					}
-				]}
-			/>
+			<KeyValueTable rows={addressRows(target.email, address)} />
 		</EmailSection>
 
 		<EmailSection

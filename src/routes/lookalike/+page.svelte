@@ -7,9 +7,11 @@
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import LookalikeTypePicker from '$lib/components/LookalikeTypePicker.svelte';
 	import LookalikeRow from '$lib/components/LookalikeRow.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { parseDomain } from '$lib/lookalike/domain.js';
 	import { countByType, generateLookalikes, pickForResolution } from '$lib/lookalike/generators.js';
 	import { RESOLVE_LIMIT, resolveAll } from '$lib/lookalike/resolve.js';
+	import { buildLookalikeReport } from '$lib/lookalike/report.js';
 	import { formatNumber, t } from '$lib/i18n/i18n.svelte.js';
 
 	/** @typedef {import('$lib/lookalike/generators.js').Candidate} Candidate */
@@ -107,6 +109,15 @@
 		stopped = true;
 	}
 
+	const buildReport = () =>
+		buildLookalikeReport({
+			target: target,
+			candidates,
+			runList,
+			results,
+			stopped
+		});
+
 	// Other tools link here with ?q=<domain>; the static page reads it in the browser.
 	onMount(() => {
 		const q = new URLSearchParams(window.location.search).get('q')?.trim();
@@ -143,6 +154,9 @@
 			{t('lookalike.inputHint')}
 		{/if}
 	</p>
+	{#if target && done}
+		<ExportMenu build={buildReport} />
+	{/if}
 </section>
 
 {#if target}

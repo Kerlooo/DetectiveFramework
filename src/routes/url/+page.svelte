@@ -12,6 +12,7 @@
 	import UrlScans from '$lib/components/UrlScans.svelte';
 	import UrlHaus from '$lib/components/UrlHaus.svelte';
 	import UrlWayback from '$lib/components/UrlWayback.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { ApiError } from '$lib/api.js';
 	import { analyzeUrl } from '$lib/url/analyze.js';
 	import {
@@ -20,6 +21,7 @@
 		lookupUrlhaus,
 		lookupUrlscan
 	} from '$lib/url/remote.js';
+	import { buildUrlReport } from '$lib/url/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/** @typedef {{ status: 'loading' | 'done' | 'error' | 'backend', data?: any, error?: string }} SectionState */
@@ -101,6 +103,9 @@
 		}
 	});
 
+	const buildReport = () =>
+		buildUrlReport({ result, showUrlscan: Boolean(scanHost(result)), sections });
+
 	/** @param {any[]} list */
 	const isEmptyList = (list) => !list?.length;
 </script>
@@ -122,6 +127,9 @@
 		<p class="error" role="alert">{analysis.error}</p>
 	{:else}
 		<p>{t('url.hint')}</p>
+	{/if}
+	{#if result}
+		<ExportMenu build={buildReport} />
 	{/if}
 </section>
 

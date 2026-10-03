@@ -1,8 +1,8 @@
 <script>
 	import KeyValueTable from '$lib/components/KeyValueTable.svelte';
 	import MacFormats from '$lib/components/MacFormats.svelte';
-	import { googleSearchUrl } from '$lib/search.js';
-	import { getLocale, t } from '$lib/i18n/i18n.svelte.js';
+	import { macDetailRows, macSearchUrls } from '$lib/mac/rows.js';
+	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/**
 	 * @type {{
@@ -13,41 +13,9 @@
 	 */
 	let { mac, vendor, vendorText } = $props();
 
-	let countryName = $derived.by(() => {
-		if (!vendor?.country) return null;
-		const name = new Intl.DisplayNames(getLocale(), { type: 'region' }).of(vendor.country);
-		return `${name} (${vendor.country})`;
-	});
+	let rows = $derived(macDetailRows(mac, vendor, vendorText));
 
-	let rows = $derived([
-		{ label: t('mac.row.vendor'), value: vendorText },
-		{
-			label: t('mac.row.assignment'),
-			value: vendor
-				? t('mac.assignment', {
-						registry: vendor.registry,
-						prefix: vendor.prefix,
-						bits: vendor.bits
-					})
-				: null
-		},
-		{ label: t('mac.row.country'), value: countryName },
-		{
-			label: t('mac.row.cast'),
-			value: mac.broadcast
-				? t('mac.broadcast')
-				: mac.multicast
-					? t('mac.multicast')
-					: t('mac.unicast')
-		},
-		{
-			label: t('mac.row.administration'),
-			value: mac.local ? t('mac.local') : t('mac.universal')
-		}
-	]);
-
-	let colon = $derived(mac.formats[0].value);
-	let showVendorSearch = $derived(vendor !== null && vendor.organization !== 'Private');
+	let searches = $derived(macSearchUrls(mac, vendor));
 </script>
 
 <KeyValueTable {rows} />
@@ -73,18 +41,11 @@
 <!-- eslint-disable svelte/no-navigation-without-resolve -->
 <ul class="links">
 	<li>
-		<a
-			href={googleSearchUrl(`"${colon}" OR "${mac.formats.find((f) => f.id === 'hyphen')?.value}"`)}
-			target="_blank"
-			rel="noopener noreferrer">{t('mac.googleSearch')}</a
-		>
+		<a href={searches.address} target="_blank" rel="noopener noreferrer">{t('mac.googleSearch')}</a>
 	</li>
-	{#if showVendorSearch && vendor}
+	{#if searches.vendor}
 		<li>
-			<a
-				href={googleSearchUrl(`"${vendor.organization}"`)}
-				target="_blank"
-				rel="noopener noreferrer">{t('mac.googleVendor')}</a
+			<a href={searches.vendor} target="_blank" rel="noopener noreferrer">{t('mac.googleVendor')}</a
 			>
 		</li>
 	{/if}

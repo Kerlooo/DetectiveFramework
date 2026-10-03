@@ -8,6 +8,7 @@
 	import IpSection from '$lib/components/IpSection.svelte';
 	import IpScanResults from '$lib/components/IpScanResults.svelte';
 	import IpAddressChoices from '$lib/components/IpAddressChoices.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { classifyIp, parseInput, parseIp } from '$lib/ip/address.js';
 	import {
 		lookupGeo,
@@ -17,6 +18,7 @@
 		resolveHostname
 	} from '$lib/ip/lookups.js';
 	import { geoRows, rdapRows } from '$lib/ip/rows.js';
+	import { buildIpReport } from '$lib/ip/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/** @typedef {{ status: 'loading' | 'done' | 'error', data?: any, error?: string }} SectionState */
@@ -127,6 +129,14 @@
 		}
 	}
 
+	const buildReport = () =>
+		buildIpReport({
+			target: target,
+			special,
+			resolved,
+			sections
+		});
+
 	/** @param {any[] | null} list */
 	const isEmptyList = (list) => !list?.length;
 
@@ -175,6 +185,9 @@
 			selected={target.address}
 			onselect={select}
 		/>
+	{/if}
+	{#if target}
+		<ExportMenu build={buildReport} />
 	{/if}
 </section>
 

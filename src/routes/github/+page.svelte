@@ -9,7 +9,9 @@
 	import GithubOrgs from '$lib/components/GithubOrgs.svelte';
 	import GithubEmails from '$lib/components/GithubEmails.svelte';
 	import GithubKeys from '$lib/components/GithubKeys.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { normalizeUsername } from '$lib/github/api.js';
+	import { buildGithubReport } from '$lib/github/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 	import {
 		COMMITS_PER_REPO,
@@ -116,6 +118,13 @@
 		load(emails, () => fetchCommitEmails(login, repoList ?? [], options), signal);
 	}
 
+	const buildReport = () =>
+		buildGithubReport({
+			username: searched,
+			commitsPerRepo: COMMITS_PER_REPO,
+			sections: { profile, repos, emails, orgs, keys }
+		});
+
 	let busy = $derived(
 		profile.status === 'loading' || repos.status === 'loading' || emails.status === 'loading'
 	);
@@ -143,6 +152,9 @@
 	<p class="hint">{t('github.requestsHint', { max: MAX_REQUESTS })}</p>
 	{#if rate}
 		<GithubRateLimit {rate} />
+	{/if}
+	{#if searched}
+		<ExportMenu build={buildReport} />
 	{/if}
 </section>
 

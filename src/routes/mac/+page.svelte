@@ -5,8 +5,10 @@
 	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	import MacDetails from '$lib/components/MacDetails.svelte';
 	import MacTable from '$lib/components/MacTable.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { parseMacList } from '$lib/mac/parse.js';
 	import { loadOuiData, lookupVendor } from '$lib/mac/vendor.js';
+	import { buildMacReport } from '$lib/mac/report.js';
 	import { formatDate, t } from '$lib/i18n/i18n.svelte.js';
 
 	let input = $state('');
@@ -53,6 +55,16 @@
 			? formatDate(new Date(`${data.updated}T00:00:00Z`), { dateStyle: 'long', timeZone: 'UTC' })
 			: null
 	);
+
+	const buildReport = () =>
+		buildMacReport({
+			list,
+			single,
+			vendor: single && vendorOf(single),
+			vendorText: single ? vendorText(single) : '',
+			tableRows,
+			updated
+		});
 
 	// The vendor table (about 0.6 MB compressed) is only downloaded once an address is typed.
 	$effect(() => {
@@ -101,6 +113,9 @@
 			{t('mac.source')}
 			{#if updated}{t('mac.updated', { date: updated })}{/if}
 		</p>
+		{#if single || list.length > 1}
+			<ExportMenu build={buildReport} />
+		{/if}
 	</section>
 
 	<section class="panel" aria-labelledby="mac-results-heading">

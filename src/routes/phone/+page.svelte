@@ -4,8 +4,11 @@
 	import KeyValueTable from '$lib/components/KeyValueTable.svelte';
 	import PhoneFormats from '$lib/components/PhoneFormats.svelte';
 	import PhoneLinks from '$lib/components/PhoneLinks.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { analyzePhone } from '$lib/phone/analyze.js';
 	import { listCountries } from '$lib/phone/countries.js';
+	import { phoneRows } from '$lib/phone/rows.js';
+	import { buildPhoneReport } from '$lib/phone/report.js';
 	import { getLocale, t } from '$lib/i18n/i18n.svelte.js';
 
 	let countries = $derived(listCountries(getLocale()));
@@ -16,39 +19,9 @@
 	let analysis = $derived(analyzePhone(input, defaultCountry));
 	let result = $derived(analysis.result);
 
-	let rows = $derived(
-		result
-			? [
-					{
-						label: t('phone.row.valid'),
-						value: result.valid
-							? t('common.yes')
-							: result.possible
-								? t('phone.notAssigned')
-								: result.lengthProblem
-									? t('phone.noWithReason', { reason: result.lengthProblem })
-									: t('common.no')
-					},
-					{
-						label: t('phone.row.possible'),
-						value: result.possible ? t('common.yes') : t('common.no')
-					},
-					{
-						label: t('phone.row.country'),
-						value: result.country
-							? `${result.flag} ${result.countryName} (${result.country})`
-							: null
-					},
-					{ label: t('phone.row.callingCode'), value: result.callingCode },
-					{ label: t('phone.row.nationalNumber'), value: result.nationalNumber },
-					{ label: t('phone.row.extension'), value: result.extension },
-					{
-						label: t('phone.row.type'),
-						value: result.typeLabel ?? (result.valid ? t('common.unknown') : null)
-					}
-				]
-			: []
-	);
+	let rows = $derived(result ? phoneRows(result) : []);
+
+	const buildReport = () => buildPhoneReport({ input, result: result });
 </script>
 
 <PageMeta title="{t('tools.phone.name')} — FreeOSINT-UI" description={t('phone.metaDescription')} />
@@ -92,6 +65,9 @@
 		<p class="note">
 			{t('phone.note')}
 		</p>
+		{#if result}
+			<ExportMenu build={buildReport} />
+		{/if}
 	</section>
 
 	<section class="panel" aria-labelledby="phone-results-heading">

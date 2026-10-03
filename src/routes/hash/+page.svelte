@@ -6,8 +6,10 @@
 	import HashVerifier from '$lib/components/HashVerifier.svelte';
 	import ModeSwitch from '$lib/components/ModeSwitch.svelte';
 	import ProgressBar from '$lib/components/ProgressBar.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { hashFile, hashText } from '$lib/hash/compute.js';
 	import { findMatches } from '$lib/hash/identify.js';
+	import { buildHashReport } from '$lib/hash/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	let modes = $derived([
@@ -69,6 +71,15 @@
 	let digests = $derived(mode === 'text' ? textDigests : fileDigests);
 	let matches = $derived(digests ? findMatches(expected, digests) : []);
 	let hashingFile = $derived(mode === 'file' && file !== null && !fileDigests && !fileError);
+
+	const buildReport = () =>
+		buildHashReport({
+			mode: mode === 'file' ? 'file' : 'text',
+			text,
+			file,
+			digests,
+			expected
+		});
 </script>
 
 <PageMeta title="{t('tools.hash.name')} — FreeOSINT-UI" description={t('hash.metaDescription')} />
@@ -102,6 +113,9 @@
 		{/if}
 
 		<HashVerifier bind:value={expected} {digests} />
+		{#if digests}
+			<ExportMenu build={buildReport} />
+		{/if}
 	</section>
 
 	<section class="panel" aria-labelledby="results-heading">

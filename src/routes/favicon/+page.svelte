@@ -7,9 +7,11 @@
 	import FaviconPreview from '$lib/components/FaviconPreview.svelte';
 	import FaviconHashList from '$lib/components/FaviconHashList.svelte';
 	import FaviconSearchLinks from '$lib/components/FaviconSearchLinks.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { MAX_FAVICON_BYTES, faviconHashes, searchLinks } from '$lib/favicon/hash.js';
 	import { detectImageFormat } from '$lib/favicon/format.js';
 	import { faviconUrl } from '$lib/favicon/site.js';
+	import { buildFaviconReport } from '$lib/favicon/report.js';
 	import { formatNumber, t } from '$lib/i18n/i18n.svelte.js';
 
 	let site = $state('');
@@ -70,6 +72,14 @@
 		}
 	}
 
+	const buildReport = () =>
+		buildFaviconReport({
+			file,
+			format,
+			hashes,
+			siteUrl
+		});
+
 	// Other tools link here with ?q=<domain> to prefill the favicon link.
 	onMount(() => {
 		const q = new URLSearchParams(window.location.search).get('q')?.trim();
@@ -115,6 +125,9 @@
 		{#if file && !error}
 			<FaviconPreview {file} />
 			<KeyValueTable rows={details} />
+		{/if}
+		{#if file && hashes}
+			<ExportMenu build={buildReport} />
 		{/if}
 	</section>
 

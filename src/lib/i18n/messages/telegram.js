@@ -38,6 +38,9 @@ export default {
 		views: '{views} views',
 		media: '[media]',
 		openPost: 'open ↗',
+		'report.date': 'Date',
+		'report.views': 'Views',
+		'report.text': 'Text',
 		mediaOnly: 'No text (media only).'
 	},
 	it: {
@@ -79,6 +82,9 @@ export default {
 		views: '{views} visualizzazioni',
 		media: '[media]',
 		openPost: 'apri ↗',
+		'report.date': 'Data',
+		'report.views': 'Visualizzazioni',
+		'report.text': 'Testo',
 		mediaOnly: 'Nessun testo (solo media).'
 	},
 	fr: {
@@ -120,6 +126,9 @@ export default {
 		views: '{views} vues',
 		media: '[média]',
 		openPost: 'ouvrir ↗',
+		'report.date': 'Date',
+		'report.views': 'Vues',
+		'report.text': 'Texte',
 		mediaOnly: 'Pas de texte (média uniquement).'
 	},
 	ja: {
@@ -161,6 +170,9 @@ export default {
 		views: '{views} 回表示',
 		media: '[メディア]',
 		openPost: '開く ↗',
+		'report.date': '日付',
+		'report.views': '閲覧数',
+		'report.text': '本文',
 		mediaOnly: 'テキストなし (メディアのみ)。'
 	}
 };

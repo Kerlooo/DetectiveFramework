@@ -11,6 +11,7 @@
 	import FootprintSubdomains from '$lib/components/FootprintSubdomains.svelte';
 	import FootprintUrls from '$lib/components/FootprintUrls.svelte';
 	import FootprintParams from '$lib/components/FootprintParams.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { ApiError } from '$lib/api.js';
 	import { normalizeFootprintDomain } from '$lib/footprint/normalize.js';
 	import { lookupCommonCrawl } from '$lib/footprint/commoncrawl.js';
@@ -18,6 +19,7 @@
 	import { mergeRecords } from '$lib/footprint/merge.js';
 	import { groupEntries } from '$lib/footprint/classify.js';
 	import { computeStats, extractParams, findSubdomains } from '$lib/footprint/stats.js';
+	import { buildFootprintReport } from '$lib/footprint/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/** @typedef {{ status: 'loading' | 'done' | 'error', data?: any, error?: string, backendDown?: boolean }} SectionState */
@@ -105,6 +107,18 @@
 			});
 	}
 
+	const buildReport = () =>
+		buildFootprintReport({
+			target: target,
+			cc,
+			wayback,
+			entries,
+			stats,
+			groups,
+			subdomains,
+			params
+		});
+
 	/** @param {unknown} error */
 	const messageOf = (error) => (error instanceof Error ? error.message : String(error));
 
@@ -150,6 +164,9 @@
 				>{t('tools.dorks.name')}</a
 			>
 		</p>
+	{/if}
+	{#if target && (entries.length || !busy)}
+		<ExportMenu build={buildReport} />
 	{/if}
 </section>
 

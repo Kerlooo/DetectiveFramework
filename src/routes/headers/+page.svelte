@@ -10,8 +10,10 @@
 	import HeadersAuth from '$lib/components/HeadersAuth.svelte';
 	import HeadersPivots from '$lib/components/HeadersPivots.svelte';
 	import HeadersRawList from '$lib/components/HeadersRawList.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { analyzeHeaders } from '$lib/headers/analyze.js';
 	import { extractHeaderBlock } from '$lib/headers/parse.js';
+	import { buildHeadersReport } from '$lib/headers/report.js';
 	import { SAMPLE_HEADERS } from '$lib/headers/sample.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
@@ -51,6 +53,8 @@
 		fileError = '';
 		isExample = true;
 	}
+
+	const buildReport = () => buildHeadersReport({ result: result });
 
 	function clear() {
 		input = '';
@@ -105,6 +109,9 @@
 		<FileDrop {file} onselect={selectFile} />
 		{#if fileError}
 			<p class="error" role="alert">{fileError}</p>
+		{/if}
+		{#if result}
+			<ExportMenu build={buildReport} />
 		{/if}
 	</section>
 

@@ -9,6 +9,7 @@
 	import DomainRegistration from '$lib/components/DomainRegistration.svelte';
 	import DomainSubdomains from '$lib/components/DomainSubdomains.svelte';
 	import DomainArchive from '$lib/components/DomainArchive.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { normalizeDomain } from '$lib/domain/normalize.js';
 	import { lookupDnsRecords } from '$lib/domain/dns.js';
 	import { emailSecurityFindings } from '$lib/domain/email.js';
@@ -16,6 +17,7 @@
 	import { lookupWayback } from '$lib/domain/archive.js';
 	import { lookupEmailAuth } from '$lib/dns/email-auth.js';
 	import { lookupRdap } from '$lib/rdap.js';
+	import { buildDomainReport } from '$lib/domain/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/** @typedef {{ status: 'idle' | 'loading' | 'done' | 'error', data: any, error: string | null }} Section */
@@ -89,6 +91,8 @@
 		}
 	}
 
+	const buildReport = () => buildDomainReport({ domain, sections });
+
 	// Other tools link here with ?q=...; the static page reads it in the browser.
 	onMount(() => {
 		const q = new URLSearchParams(window.location.search).get('q')?.trim();
@@ -128,6 +132,9 @@
 	<p class="note">
 		{t('domain.passiveNote')}
 	</p>
+	{#if domain}
+		<ExportMenu build={buildReport} />
+	{/if}
 </section>
 
 {#if domain}

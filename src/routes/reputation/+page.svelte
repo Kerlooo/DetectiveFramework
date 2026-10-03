@@ -7,9 +7,11 @@
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import ReputationSection from '$lib/components/ReputationSection.svelte';
 	import ReputationSummary from '$lib/components/ReputationSummary.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { ApiError, BACKEND_START_COMMAND } from '$lib/api.js';
 	import { parseIndicator } from '$lib/reputation/indicator.js';
 	import { countResults, sourcesFor } from '$lib/reputation/sources.js';
+	import { buildReputationReport } from '$lib/reputation/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/**
@@ -89,6 +91,14 @@
 		}
 	}
 
+	const buildReport = () =>
+		buildReputationReport({
+			indicator,
+			sources,
+			sections,
+			counts
+		});
+
 	onMount(() => {
 		const q = new URLSearchParams(window.location.search).get('q');
 		if (q) {
@@ -146,6 +156,9 @@
 			</p>
 			<code>{BACKEND_START_COMMAND}</code>
 		</div>
+	{/if}
+	{#if indicator}
+		<ExportMenu build={buildReport} />
 	{/if}
 </section>
 

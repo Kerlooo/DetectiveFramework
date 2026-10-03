@@ -4,7 +4,9 @@
 	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	import DorkGroup from '$lib/components/DorkGroup.svelte';
 	import ModeSwitch from '$lib/components/ModeSwitch.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { generateDorks } from '$lib/dorks/generate.js';
+	import { buildDorksReport } from '$lib/dorks/report.js';
 	import { TARGET_TYPES } from '$lib/dorks/targets.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
@@ -24,6 +26,8 @@
 	let type = $derived(TARGET_TYPES.find((target) => target.id === typeId));
 	let result = $derived(generateDorks(typeId, input));
 	let total = $derived(result.groups.reduce((sum, group) => sum + group.dorks.length, 0));
+
+	const buildReport = () => buildDorksReport({ typeLabel: type.label, result });
 </script>
 
 <PageMeta
@@ -57,6 +61,9 @@
 			{t('dorks.statusIdle')}
 		{/if}
 	</p>
+	{#if result.groups.length}
+		<ExportMenu build={buildReport} />
+	{/if}
 </section>
 
 {#if result.groups.length}

@@ -1,5 +1,6 @@
 <script>
 	import KeyValueTable from '$lib/components/KeyValueTable.svelte';
+	import { dmarcRows, spfRows } from '$lib/domain/rows.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/**
@@ -7,37 +8,8 @@
 	 */
 	let { auth, findings } = $props();
 
-	const SPF_ALL = {
-		fail: '-all (fail)',
-		softfail: '~all (softfail)',
-		neutral: '?all (neutral)',
-		pass: '+all (pass)'
-	};
-
-	let spfRows = $derived(
-		auth.spf
-			? [
-					{ label: t('dns.label.record'), value: auth.spf.record },
-					{
-						label: t('dns.label.allPolicy'),
-						value: SPF_ALL[auth.spf.allPolicy] ?? t('dns.value.none')
-					},
-					{ label: t('dns.label.includes'), value: auth.spf.includes.join(', ') }
-				]
-			: []
-	);
-
-	let dmarcRows = $derived(
-		auth.dmarc
-			? [
-					{ label: t('dns.label.record'), value: auth.dmarc.record },
-					{ label: t('dns.label.policy'), value: auth.dmarc.policy ?? t('dns.value.missing') },
-					{ label: t('dns.label.subdomainPolicy'), value: auth.dmarc.subdomainPolicy },
-					{ label: t('dns.label.percent'), value: `${auth.dmarc.percent}%` },
-					{ label: t('dns.label.reports'), value: auth.dmarc.reports.join(', ') }
-				]
-			: []
-	);
+	let spf = $derived(spfRows(auth.spf));
+	let dmarc = $derived(dmarcRows(auth.dmarc));
 </script>
 
 <ul class="findings">
@@ -53,7 +25,7 @@
 	<div>
 		<h3>SPF</h3>
 		{#if auth.spf}
-			<KeyValueTable rows={spfRows} />
+			<KeyValueTable rows={spf} />
 		{:else}
 			<p>{t('dns.spf.noRecord')}</p>
 		{/if}
@@ -61,7 +33,7 @@
 	<div>
 		<h3>DMARC</h3>
 		{#if auth.dmarc}
-			<KeyValueTable rows={dmarcRows} />
+			<KeyValueTable rows={dmarc} />
 		{:else}
 			<p>{t('dns.dmarc.noRecord')}</p>
 		{/if}

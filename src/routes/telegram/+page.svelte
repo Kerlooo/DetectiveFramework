@@ -4,8 +4,10 @@
 	import LookupForm from '$lib/components/LookupForm.svelte';
 	import TelegramProfileCard from '$lib/components/TelegramProfileCard.svelte';
 	import TelegramPostList from '$lib/components/TelegramPostList.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { ApiError, BACKEND_START_COMMAND, apiGet } from '$lib/api.js';
 	import { normalizeTelegramUsername } from '$lib/telegram/validate.js';
+	import { buildTelegramReport } from '$lib/telegram/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	let input = $state('');
@@ -44,6 +46,8 @@
 			}
 		}
 	}
+
+	const buildReport = () => buildTelegramReport({ profile });
 </script>
 
 <PageMeta
@@ -74,6 +78,9 @@
 		<p class="error" role="alert">{error}</p>
 	{:else}
 		<p>{t('telegram.intro')}</p>
+	{/if}
+	{#if profile}
+		<ExportMenu build={buildReport} />
 	{/if}
 </section>
 

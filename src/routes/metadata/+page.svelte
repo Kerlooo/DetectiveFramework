@@ -6,7 +6,9 @@
 	import MetadataPreview from '$lib/components/MetadataPreview.svelte';
 	import MetadataGroups from '$lib/components/MetadataGroups.svelte';
 	import MetadataReverseSearch from '$lib/components/MetadataReverseSearch.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { buildResult, readMetadata } from '$lib/metadata/extract.js';
+	import { buildMetadataReport } from '$lib/metadata/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	/** @type {File | null} */
@@ -35,6 +37,12 @@
 			if (current === run) busy = false;
 		}
 	}
+
+	const buildReport = () =>
+		buildMetadataReport({
+			file,
+			result
+		});
 </script>
 
 <PageMeta
@@ -57,6 +65,9 @@
 		{/if}
 		{#if file && result?.isImage}
 			<MetadataPreview {file} />
+		{/if}
+		{#if file && result}
+			<ExportMenu build={buildReport} />
 		{/if}
 	</section>
 

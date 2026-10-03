@@ -6,9 +6,11 @@
 	import LookupForm from '$lib/components/LookupForm.svelte';
 	import LeakBreachCard from '$lib/components/LeakBreachCard.svelte';
 	import LeakPasswordInput from '$lib/components/LeakPasswordInput.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { parseEmail } from '$lib/email/address.js';
 	import { checkEmailBreaches } from '$lib/leaks/xposedornot.js';
 	import { checkPwnedPassword } from '$lib/leaks/pwned-passwords.js';
+	import { buildLeaksReport } from '$lib/leaks/report.js';
 	import { formatNumber, t } from '$lib/i18n/i18n.svelte.js';
 
 	const MODES = $derived([
@@ -94,6 +96,9 @@
 		passwordResult = null;
 	}
 
+	// Only email results are exported, never password checks.
+	const buildReport = () => buildLeaksReport(emailResult);
+
 	// The Email Analyzer links here with ?email=...; the static page reads it in the browser.
 	onMount(() => {
 		const email = new URLSearchParams(window.location.search).get('email');
@@ -124,6 +129,9 @@
 		<p class="note">
 			{t('leaks.email.note')}
 		</p>
+		{#if emailResult}
+			<ExportMenu build={buildReport} />
+		{/if}
 	{:else}
 		<form class="password-form" onsubmit={checkPassword}>
 			<LeakPasswordInput

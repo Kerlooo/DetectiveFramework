@@ -7,10 +7,12 @@
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import UsernameStatusFilters from '$lib/components/UsernameStatusFilters.svelte';
 	import UsernameResultGroup from '$lib/components/UsernameResultGroup.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { ApiError, BACKEND_START_COMMAND, apiGet } from '$lib/api.js';
 	import { runPool } from '$lib/username/pool.js';
 	import { NSFW_CATEGORY, foundUrls, groupByCategory, summarize } from '$lib/username/results.js';
 	import { normalizeUsername } from '$lib/username/validate.js';
+	import { buildUsernameReport } from '$lib/username/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	const CONCURRENCY = 8;
@@ -118,6 +120,9 @@
 		}
 	}
 
+	const buildReport = () =>
+		buildUsernameReport({ username: scannedName, total, scanning, results });
+
 	function cancel() {
 		controller?.abort();
 		controller = null;
@@ -162,6 +167,9 @@
 		<p>{t('username.loadingSites')}</p>
 	{:else}
 		<p>{t('username.sitesToCheck', { count: targetSites.length })}</p>
+	{/if}
+	{#if total}
+		<ExportMenu build={buildReport} />
 	{/if}
 </section>
 

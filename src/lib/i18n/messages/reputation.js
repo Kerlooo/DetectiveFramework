@@ -43,6 +43,7 @@ export default {
 		'status.notListed': 'not listed',
 		'status.unavailable': 'unavailable',
 		'status.loading': 'loading…',
+		result: 'Result',
 		checked: 'Checked',
 		open: 'View on {source}',
 		notConfigured:
@@ -131,6 +132,7 @@ export default {
 		'status.notListed': 'non segnalato',
 		'status.unavailable': 'non disponibile',
 		'status.loading': 'caricamento…',
+		result: 'Risultato',
 		checked: 'Controllato',
 		open: 'Vedi su {source}',
 		notConfigured:
@@ -221,6 +223,7 @@ export default {
 		'status.notListed': 'non signalé',
 		'status.unavailable': 'indisponible',
 		'status.loading': 'chargement…',
+		result: 'Résultat',
 		checked: 'Vérifié',
 		open: 'Voir sur {source}',
 		notConfigured:
@@ -309,6 +312,7 @@ export default {
 		'status.notListed': '掲載なし',
 		'status.unavailable': '利用不可',
 		'status.loading': '読み込み中…',
+		result: '結果',
 		checked: '確認対象',
 		open: '{source} で表示',
 		notConfigured:

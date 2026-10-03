@@ -5,7 +5,9 @@
 	import TimestampDate from '$lib/components/TimestampDate.svelte';
 	import TimestampResult from '$lib/components/TimestampResult.svelte';
 	import TimestampValueList from '$lib/components/TimestampValueList.svelte';
+	import ExportMenu from '$lib/components/ExportMenu.svelte';
 	import { decodeInput } from '$lib/timestamp/decode.js';
+	import { buildTimestampReport } from '$lib/timestamp/report.js';
 	import { t } from '$lib/i18n/i18n.svelte.js';
 
 	let input = $state('');
@@ -17,6 +19,10 @@
 	let plausible = $derived(results.filter((r) => r.plausible));
 	let unlikely = $derived(results.filter((r) => !r.plausible));
 	let visible = $derived(plausible.length && !showUnlikely ? plausible : results);
+
+	let hasResults = $derived(decoding.kind === 'ids' || decoding.kind === 'date');
+
+	const buildReport = () => buildTimestampReport({ input, decoding, now: Date.now() });
 
 	function useNow() {
 		now = Date.now();
@@ -69,6 +75,9 @@
 			{/if}
 		</p>
 		<p class="note">{t('timestamp.accepted')}</p>
+		{#if hasResults}
+			<ExportMenu build={buildReport} />
+		{/if}
 	</section>
 
 	<section class="panel" aria-labelledby="timestamp-results-heading">

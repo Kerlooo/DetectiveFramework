@@ -67,7 +67,12 @@ export default {
 		'tx.to': 'to',
 		'tx.from': 'from',
 		'tx.traceAddress': 'Trace {address}',
-		'tx.more': { one: '+{count} more', other: '+{count} more' }
+		'tx.more': { one: '+{count} more', other: '+{count} more' },
+		'col.tx': 'Transaction',
+		'col.date': 'Date',
+		'col.direction': 'Direction',
+		'col.amount': 'Amount',
+		'col.counterparties': 'Counterparties'
 	},
 	it: {
 		metaDescription:
@@ -136,7 +141,12 @@ export default {
 		'tx.to': 'a',
 		'tx.from': 'da',
 		'tx.traceAddress': 'Traccia {address}',
-		'tx.more': { one: '+{count} altro', other: '+{count} altri' }
+		'tx.more': { one: '+{count} altro', other: '+{count} altri' },
+		'col.tx': 'Transazione',
+		'col.date': 'Data',
+		'col.direction': 'Direzione',
+		'col.amount': 'Importo',
+		'col.counterparties': 'Controparti'
 	},
 	fr: {
 		metaDescription:
@@ -205,7 +215,12 @@ export default {
 		'tx.to': 'vers',
 		'tx.from': 'de',
 		'tx.traceAddress': 'Tracer {address}',
-		'tx.more': { one: '+{count} de plus', other: '+{count} de plus' }
+		'tx.more': { one: '+{count} de plus', other: '+{count} de plus' },
+		'col.tx': 'Transaction',
+		'col.date': 'Date',
+		'col.direction': 'Sens',
+		'col.amount': 'Montant',
+		'col.counterparties': 'Contreparties'
 	},
 	ja: {
 		metaDescription:
@@ -274,6 +289,11 @@ export default {
 		'tx.to': '宛先',
 		'tx.from': '送信元',
 		'tx.traceAddress': '{address} を追跡',
-		'tx.more': { other: '+{count} 件' }
+		'tx.more': { other: '+{count} 件' },
+		'col.tx': 'トランザクション',
+		'col.date': '日時',
+		'col.direction': '方向',
+		'col.amount': '金額',
+		'col.counterparties': '取引相手'
 	}
 };
