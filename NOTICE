@@ -18,3 +18,9 @@ backend/data/wmn-data.json comes from the WhatsMyName project
 (https://github.com/WebBreacher/WhatsMyName) and is licensed under the
 Creative Commons Attribution-ShareAlike 4.0 International license (CC BY-SA 4.0),
 not under the license of this project.
+
+Third-party fonts
+-----------------
+static/fonts/ contains Noto Sans and a subset of Noto Sans JP, used to write the PDF
+exports. They are licensed under the SIL Open Font License, Version 1.1
+(static/fonts/OFL.txt), not under the license of this project.
