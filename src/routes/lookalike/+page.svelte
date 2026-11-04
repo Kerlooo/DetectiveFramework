@@ -130,7 +130,7 @@
 </script>
 
 <PageMeta
-	title="{t('tools.lookalike.name')} — FreeOSINT-UI"
+	title="{t('tools.lookalike.name')} — DetectiveFramework"
 	description={t('lookalike.metaDescription')}
 />
 

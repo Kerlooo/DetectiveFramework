@@ -1,7 +1,7 @@
 /** Public origin of the deployed site, used for canonical URLs, Open Graph and the sitemap. */
-export const SITE_URL = 'https://freeosintui.vercel.app';
+export const SITE_URL = 'https://detectiveframework.vercel.app';
 
-export const SITE_NAME = 'FreeOSINT-UI';
+export const SITE_NAME = 'DetectiveFramework';
 
 /**
  * Absolute URL of a site path, without a trailing slash except for the home page.

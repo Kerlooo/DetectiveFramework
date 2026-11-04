@@ -17,7 +17,7 @@
 
 <section class="hero">
 	<h1>
-		<span class="prompt" aria-hidden="true">&gt;</span> FreeOSINT-UI<span
+		<span class="prompt" aria-hidden="true">&gt;</span> DetectiveFramework<span
 			class="cursor"
 			aria-hidden="true">_</span
 		>

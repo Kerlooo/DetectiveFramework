@@ -82,7 +82,10 @@
 		});
 </script>
 
-<PageMeta title="{t('tools.hash.name')} — FreeOSINT-UI" description={t('hash.metaDescription')} />
+<PageMeta
+	title="{t('tools.hash.name')} — DetectiveFramework"
+	description={t('hash.metaDescription')}
+/>
 
 <ToolHeader title={t('tools.hash.name')} description={t('hash.intro')} />
 

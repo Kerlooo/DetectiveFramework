@@ -8,7 +8,7 @@ Only the latest version on the `main` branch receives security fixes.
 
 Please **don't open a public issue** for security problems.
 
-Report them privately through [GitHub private vulnerability reporting](https://github.com/Kerlooo/FreeOSINTUI/security/advisories/new) (Security tab → Report a vulnerability). Include:
+Report them privately through [GitHub private vulnerability reporting](https://github.com/Kerlooo/DetectiveFramework/security/advisories/new) (Security tab → Report a vulnerability). Include:
 
 - what the problem is and where (tool, file, endpoint);
 - steps to reproduce or a proof of concept;

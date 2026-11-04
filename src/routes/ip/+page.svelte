@@ -150,7 +150,7 @@
 	});
 </script>
 
-<PageMeta title="{t('tools.ip.name')} — FreeOSINT-UI" description={t('ip.metaDescription')} />
+<PageMeta title="{t('tools.ip.name')} — DetectiveFramework" description={t('ip.metaDescription')} />
 
 <ToolHeader title={t('tools.ip.name')} description={t('ip.intro')} />
 

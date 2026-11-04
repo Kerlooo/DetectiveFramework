@@ -110,7 +110,10 @@
 	const isEmptyList = (list) => !list?.length;
 </script>
 
-<PageMeta title="{t('tools.url.name')} — FreeOSINT-UI" description={t('url.metaDescription')} />
+<PageMeta
+	title="{t('tools.url.name')} — DetectiveFramework"
+	description={t('url.metaDescription')}
+/>
 
 <ToolHeader title={t('tools.url.name')} description={t('url.description')} />
 

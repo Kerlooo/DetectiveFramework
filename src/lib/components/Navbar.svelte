@@ -29,7 +29,7 @@
 <header>
 	<nav aria-label={t('nav.main')}>
 		<a class="brand" href={resolve('/')}>
-			<span aria-hidden="true">&gt;_</span> FreeOSINT-UI
+			<span aria-hidden="true">&gt;_</span> DetectiveFramework
 		</a>
 		<ul class="top">
 			<li>

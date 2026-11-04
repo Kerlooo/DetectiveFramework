@@ -31,7 +31,7 @@
 </script>
 
 <PageMeta
-	title="{t('tools.dorks.name')} — FreeOSINT-UI"
+	title="{t('tools.dorks.name')} — DetectiveFramework"
 	description={t('tools.dorks.description')}
 />
 

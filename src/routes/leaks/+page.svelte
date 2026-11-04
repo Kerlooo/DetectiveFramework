@@ -109,7 +109,10 @@
 	});
 </script>
 
-<PageMeta title="{t('tools.leaks.name')} — FreeOSINT-UI" description={t('leaks.metaDescription')} />
+<PageMeta
+	title="{t('tools.leaks.name')} — DetectiveFramework"
+	description={t('leaks.metaDescription')}
+/>
 
 <ToolHeader title={t('tools.leaks.name')} description={t('leaks.intro')} />
 

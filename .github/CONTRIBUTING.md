@@ -1,6 +1,6 @@
-# Contributing to FreeOSINT-UI
+# Contributing to DetectiveFramework
 
-Thanks for your interest in FreeOSINT-UI! Bug reports, new data sources, translations and new tools are all welcome.
+Thanks for your interest in DetectiveFramework! Bug reports, new data sources, translations and new tools are all welcome.
 
 By contributing you agree that your contribution is released under the project [license](LICENSE) (Apache 2.0 with the Commons Clause).
 
@@ -17,8 +17,8 @@ By contributing you agree that your contribution is released under the project [
 Prerequisites: Node.js 20.19+ or 22.12+, and for the backend [uv](https://docs.astral.sh/uv/) with Python 3.14+.
 
 ```sh
-git clone https://github.com/Kerlooo/FreeOSINTUI.git
-cd FreeOSINTUI
+git clone https://github.com/Kerlooo/DetectiveFramework.git
+cd DetectiveFramework
 npm install
 cd backend && uv sync && cd ..
 npm run dev:all   # frontend on :5173, backend on :8000

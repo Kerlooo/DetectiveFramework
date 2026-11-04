@@ -74,7 +74,7 @@
 </script>
 
 <PageMeta
-	title="{t('tools.crypto.name')} — FreeOSINT-UI"
+	title="{t('tools.crypto.name')} — DetectiveFramework"
 	description={t('crypto.metaDescription')}
 />
 

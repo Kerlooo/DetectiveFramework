@@ -88,7 +88,7 @@
 </script>
 
 <PageMeta
-	title="{t('tools.favicon.name')} — FreeOSINT-UI"
+	title="{t('tools.favicon.name')} — DetectiveFramework"
 	description={t('favicon.metaDescription')}
 />
 

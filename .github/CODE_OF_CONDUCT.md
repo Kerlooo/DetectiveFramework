@@ -1,6 +1,6 @@
 # Code of conduct
 
-FreeOSINT-UI follows the [Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). In short:
+DetectiveFramework follows the [Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). In short:
 
 - Be respectful and welcoming, whatever someone's experience, background or identity.
 - Give and accept constructive feedback; focus on the work, not the person.

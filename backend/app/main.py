@@ -1,4 +1,4 @@
-"""FreeOSINT-UI backend: only the work the browser cannot do (CORS-blocked lookups)."""
+"""DetectiveFramework backend: only the work the browser cannot do (CORS-blocked lookups)."""
 
 from contextlib import asynccontextmanager
 
@@ -22,7 +22,7 @@ async def lifespan(app: FastAPI):
         await app.state.http.aclose()
 
 
-app = FastAPI(title="FreeOSINT-UI backend", lifespan=lifespan, docs_url="/api/docs", openapi_url="/api/openapi.json", redoc_url=None)
+app = FastAPI(title="DetectiveFramework backend", lifespan=lifespan, docs_url="/api/docs", openapi_url="/api/openapi.json", redoc_url=None)
 
 app.add_middleware(
     CORSMiddleware,

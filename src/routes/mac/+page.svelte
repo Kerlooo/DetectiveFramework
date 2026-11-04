@@ -82,7 +82,10 @@
 	});
 </script>
 
-<PageMeta title="{t('tools.mac.name')} — FreeOSINT-UI" description={t('mac.metaDescription')} />
+<PageMeta
+	title="{t('tools.mac.name')} — DetectiveFramework"
+	description={t('mac.metaDescription')}
+/>
 
 <ToolHeader title={t('tools.mac.name')} description={t('mac.description')} />
 

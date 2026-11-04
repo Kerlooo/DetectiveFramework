@@ -8,10 +8,6 @@
 <footer>
 	<div class="inner">
 		<p>{t('nav.footerAbout')}</p>
-		<p class="credits">
-			{t('nav.inspiredBy')}
-			<a href="https://osint-ui.com/" target="_blank" rel="noopener noreferrer">OSINT-UI</a>.
-		</p>
 		<ul>
 			<li><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a></li>
 			<li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
@@ -39,10 +35,6 @@
 
 	p {
 		margin: 0;
-	}
-
-	.credits a {
-		color: var(--color-text-dim);
 	}
 
 	ul {

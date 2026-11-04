@@ -2,23 +2,23 @@
 export default {
 	en: {
 		down: 'Backend not running.',
-		needed: 'This tool needs the FreeOSINT-UI Python backend. Start it with:',
+		needed: 'This tool needs the DetectiveFramework Python backend. Start it with:',
 		retry: 'Retry'
 	},
 	it: {
 		down: 'Backend non avviato.',
-		needed: 'Questo strumento richiede il backend Python di FreeOSINT-UI. Avvialo con:',
+		needed: 'Questo strumento richiede il backend Python di DetectiveFramework. Avvialo con:',
 		retry: 'Riprova'
 	},
 	fr: {
 		down: 'Backend non démarré.',
-		needed: 'Cet outil nécessite le backend Python de FreeOSINT-UI. Démarrez-le avec :',
+		needed: 'Cet outil nécessite le backend Python de DetectiveFramework. Démarrez-le avec :',
 		retry: 'Réessayer'
 	},
 	ja: {
 		down: 'バックエンドが起動していません。',
 		needed:
-			'このツールには FreeOSINT-UI の Python バックエンドが必要です。次のコマンドで起動してください:',
+			'このツールには DetectiveFramework の Python バックエンドが必要です。次のコマンドで起動してください:',
 		retry: '再試行'
 	}
 };

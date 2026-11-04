@@ -1,7 +1,7 @@
 // Home page.
 export default {
 	en: {
-		title: 'FreeOSINT-UI — Free OSINT tools',
+		title: 'DetectiveFramework — Free OSINT tools',
 		metaDescription:
 			'Free OSINT tools: Google dorks, username, email, phone, domain and IP analysis, breach check, metadata extractor, hash checker and more.',
 		intro:
@@ -11,7 +11,7 @@ export default {
 		open: 'open'
 	},
 	it: {
-		title: 'FreeOSINT-UI — Strumenti OSINT gratuiti',
+		title: 'DetectiveFramework — Strumenti OSINT gratuiti',
 		metaDescription:
 			'Strumenti OSINT gratuiti: Google dork, analisi di username, email, telefono, dominio e IP, controllo dei data breach, estrattore di metadati, verifica hash e altro.',
 		intro:
@@ -21,7 +21,7 @@ export default {
 		open: 'apri'
 	},
 	fr: {
-		title: 'FreeOSINT-UI — Outils OSINT gratuits',
+		title: 'DetectiveFramework — Outils OSINT gratuits',
 		metaDescription:
 			"Outils OSINT gratuits : Google dorks, analyse de nom d'utilisateur, e-mail, téléphone, domaine et IP, vérification de fuites de données, extracteur de métadonnées, vérificateur de hash et plus.",
 		intro:
@@ -31,7 +31,7 @@ export default {
 		open: 'ouvrir'
 	},
 	ja: {
-		title: 'FreeOSINT-UI — 無料の OSINT ツール',
+		title: 'DetectiveFramework — 無料の OSINT ツール',
 		metaDescription:
 			'無料の OSINT ツール: Google dork、ユーザー名・メールアドレス・電話番号・ドメイン・IP の分析、データ漏えいチェック、メタデータ抽出、ハッシュチェッカーなど。',
 		intro:

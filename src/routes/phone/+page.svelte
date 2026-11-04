@@ -24,7 +24,10 @@
 	const buildReport = () => buildPhoneReport({ input, result: result });
 </script>
 
-<PageMeta title="{t('tools.phone.name')} — FreeOSINT-UI" description={t('phone.metaDescription')} />
+<PageMeta
+	title="{t('tools.phone.name')} — DetectiveFramework"
+	description={t('phone.metaDescription')}
+/>
 
 <ToolHeader title={t('tools.phone.name')} description={t('phone.description')} />
 

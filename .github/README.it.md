@@ -1,11 +1,16 @@
 <div align="center">
 
 ```
- _____               ___  ____ ___ _   _ _____     _   _ ___
-|  ___| __ ___  ___ / _ \/ ___|_ _| \ | |_   _|   | | | |_ _|
-| |_ | '__/ _ \/ _ \ | | \___ \| ||  \| | | |_____| | | || |
-|  _|| | |  __/  __/ |_| |___) | || |\  | | |_____| |_| || |
-|_|  |_|  \___|\___|\___/|____/___|_| \_| |_|      \___/|___|
+ ____         _                _    _
+|  _ \   ___ | |_   ___   ___ | |_ (_)__   __  ___
+| | | | / _ \| __| / _ \ / __|| __|| |\ \ / / / _ \
+| |_| ||  __/| |_ |  __/| (__ | |_ | | \ V / |  __/
+|____/  \___| \__| \___| \___| \__||_|  \_/   \___|
+ _____                                                       _
+|  ___| _ __   __ _  _ __ ___    ___ __      __  ___   _ __ | | __
+| |_   | '__| / _` || '_ ` _ \  / _ \\ \ /\ / / / _ \ | '__|| |/ /
+|  _|  | |   | (_| || | | | | ||  __/ \ V  V / | (_) || |   |   <
+|_|    |_|    \__,_||_| |_| |_| \___|  \_/\_/   \___/ |_|   |_|\_\
 ```
 
 **Strumenti OSINT gratuiti e source-available che funzionano nel tuo browser.**
@@ -24,11 +29,9 @@ Nessun account. Nessun paywall. Nessun limite mensile.
 
 ---
 
-## Perché FreeOSINT-UI?
+## Perché DetectiveFramework?
 
-[OSINT-UI](https://osint-ui.com/) è un'ottima raccolta di strumenti di open-source intelligence, ma solo pochi sono gratuiti, e anche quelli sono limitati a pochi utilizzi al mese. Tutto il resto richiede un abbonamento.
-
-La maggior parte di quelle ricerche non ha affatto bisogno di un servizio a pagamento: servono solo le giuste **fonti pubbliche gratuite** e un'interfaccia pulita. FreeOSINT-UI le mette insieme:
+La maggior parte delle ricerche OSINT non ha affatto bisogno di un servizio a pagamento: servono solo le giuste **fonti pubbliche gratuite** e un'interfaccia pulita. DetectiveFramework le mette insieme:
 
 - 🆓 **Gratis per sempre.** Tutti gli strumenti, senza limiti oltre ai rate limit delle API pubbliche stesse.
 - 🔒 **Prima di tutto nel browser.** 15 strumenti su 20 funzionano interamente nel tuo browser. I file che analizzi non lasciano mai il tuo dispositivo e le password che controlli non vengono mai inviate da nessuna parte (solo 5 caratteri del loro hash).
@@ -72,8 +75,8 @@ La maggior parte di quelle ricerche non ha affatto bisogno di un servizio a paga
 ### Frontend
 
 ```sh
-git clone https://github.com/Kerlooo/FreeOSINTUI.git
-cd FreeOSINTUI
+git clone https://github.com/Kerlooo/DetectiveFramework.git
+cd DetectiveFramework
 npm install
 npm run dev
 ```
@@ -166,23 +169,21 @@ backend/
 
 ## 🙏 Fonti dei dati e crediti
 
-FreeOSINT-UI poggia sulle spalle di questi servizi e progetti pubblici gratuiti:
+DetectiveFramework poggia sulle spalle di questi servizi e progetti pubblici gratuiti:
 
 [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) (CC BY-SA 4.0) · [XposedOrNot](https://xposedornot.com/) · [Have I Been Pwned – Pwned Passwords](https://haveibeenpwned.com/Passwords) · [Shodan InternetDB](https://internetdb.shodan.io/) · [rdap.org](https://rdap.org/) · [Google Public DNS](https://developers.google.com/speed/public-dns/docs/doh) · [crt.sh](https://crt.sh/) · [Cert Spotter](https://sslmate.com/certspotter/) · [Internet Archive](https://archive.org/) · [ipwho.is](https://ipwho.is/) · [Gravatar](https://gravatar.com/) · [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) · [mempool.space](https://mempool.space/) · [litecoinspace.org](https://litecoinspace.org/) · [Blockscout](https://www.blockscout.com/) · [GitHub REST API](https://docs.github.com/rest) · [AlienVault OTX](https://otx.alienvault.com/) · [StopForumSpam](https://www.stopforumspam.com/) · [Tor Project](https://www.torproject.org/) · [Spamhaus DROP](https://www.spamhaus.org/blocklists/do-not-route-or-peer/) · [abuse.ch URLhaus & ThreatFox](https://abuse.ch/) · [urlscan.io](https://urlscan.io/) · [Common Crawl](https://commoncrawl.org/) · [IEEE Registration Authority](https://standards.ieee.org/products-programs/regauth/)
 
-Ispirato da [OSINT-UI](https://osint-ui.com/).
-
 ## ⚖️ Uso responsabile
 
-FreeOSINT-UI interroga solo fonti pubbliche, ma i risultati possono comunque riguardare persone reali. Usalo per scopi legittimi: ricerca sulla sicurezza, indagini che sei autorizzato a svolgere e verifica della tua esposizione. Rispetta i termini di servizio di ogni fonte di dati e le leggi sulla privacy del tuo paese (ad es. il GDPR). I risultati possono essere errati o non aggiornati: trattali come piste da verificare, non come prove.
+DetectiveFramework interroga solo fonti pubbliche, ma i risultati possono comunque riguardare persone reali. Usalo per scopi legittimi: ricerca sulla sicurezza, indagini che sei autorizzato a svolgere e verifica della tua esposizione. Rispetta i termini di servizio di ogni fonte di dati e le leggi sulla privacy del tuo paese (ad es. il GDPR). I risultati possono essere errati o non aggiornati: trattali come piste da verificare, non come prove.
 
 ## 📜 Licenza
 
-FreeOSINT-UI è rilasciato con **[Apache License 2.0](LICENSE) e [Commons Clause](https://commonsclause.com/)**.
+DetectiveFramework è rilasciato con **[Apache License 2.0](LICENSE) e [Commons Clause](https://commonsclause.com/)**.
 
 - ✅ **Usalo liberamente**, per scopi personali o professionali, anche all'interno della tua azienda.
 - ✅ **Modificalo e condividilo**, purché tu mantenga i file [LICENSE](LICENSE) e [NOTICE](../NOTICE), che citano l'autore originale.
-- ❌ **Non venderlo.** Non puoi offrire a pagamento FreeOSINT-UI, né un prodotto o servizio il cui valore derivi in modo sostanziale da esso (hosting e supporto a pagamento compresi).
+- ❌ **Non venderlo.** Non puoi offrire a pagamento DetectiveFramework, né un prodotto o servizio il cui valore derivi in modo sostanziale da esso (hosting e supporto a pagamento compresi).
 
 A causa della condizione che ne vieta la vendita, questa è una licenza _source-available_, non una licenza open source approvata dall'OSI. I dati WhatsMyName inclusi (`backend/data/wmn-data.json`) mantengono la propria licenza CC BY-SA 4.0.
 

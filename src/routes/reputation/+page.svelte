@@ -110,7 +110,7 @@
 </script>
 
 <PageMeta
-	title="{t('tools.reputation.name')} — FreeOSINT-UI"
+	title="{t('tools.reputation.name')} — DetectiveFramework"
 	description={t('reputation.metaDescription')}
 />
 

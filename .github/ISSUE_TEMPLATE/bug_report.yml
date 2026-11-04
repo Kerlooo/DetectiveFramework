@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for reporting! Please don't include personal data of real people (emails, phone numbers, usernames) unless they are yours or public test values.
-        To report a security vulnerability, don't open an issue: see [SECURITY.md](https://github.com/Kerlooo/FreeOSINTUI/blob/main/.github/SECURITY.md).
+        To report a security vulnerability, don't open an issue: see [SECURITY.md](https://github.com/Kerlooo/DetectiveFramework/blob/main/.github/SECURITY.md).
   - type: dropdown
     id: tool
     attributes:

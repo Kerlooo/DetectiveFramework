@@ -3,7 +3,7 @@ export default {
 	en: {
 		// Sentence-final full stop, for text joined around markup.
 		period: '.',
-		ogImageAlt: 'FreeOSINT-UI: free OSINT tools in your browser',
+		ogImageAlt: 'DetectiveFramework: free OSINT tools in your browser',
 		yes: 'yes',
 		no: 'no',
 		unknown: 'Unknown',
@@ -28,7 +28,7 @@ export default {
 	it: {
 		// Sentence-final full stop, for text joined around markup.
 		period: '.',
-		ogImageAlt: 'FreeOSINT-UI: strumenti OSINT gratuiti nel browser',
+		ogImageAlt: 'DetectiveFramework: strumenti OSINT gratuiti nel browser',
 		yes: 'sì',
 		no: 'no',
 		unknown: 'Sconosciuto',
@@ -54,7 +54,7 @@ export default {
 	fr: {
 		// Sentence-final full stop, for text joined around markup.
 		period: '.',
-		ogImageAlt: 'FreeOSINT-UI : outils OSINT gratuits dans votre navigateur',
+		ogImageAlt: 'DetectiveFramework : outils OSINT gratuits dans votre navigateur',
 		yes: 'oui',
 		no: 'non',
 		unknown: 'Inconnu',
@@ -80,7 +80,7 @@ export default {
 	ja: {
 		// Sentence-final full stop, for text joined around markup.
 		period: '。',
-		ogImageAlt: 'FreeOSINT-UI: ブラウザで使える無料の OSINT ツール',
+		ogImageAlt: 'DetectiveFramework: ブラウザで使える無料の OSINT ツール',
 		yes: 'はい',
 		no: 'いいえ',
 		unknown: '不明',

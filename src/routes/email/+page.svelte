@@ -118,7 +118,10 @@
 	});
 </script>
 
-<PageMeta title="{t('tools.email.name')} — FreeOSINT-UI" description={t('email.metaDescription')} />
+<PageMeta
+	title="{t('tools.email.name')} — DetectiveFramework"
+	description={t('email.metaDescription')}
+/>
 
 <ToolHeader title={t('tools.email.name')} description={t('email.intro')} />
 

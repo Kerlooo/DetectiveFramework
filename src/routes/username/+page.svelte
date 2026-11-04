@@ -131,7 +131,7 @@
 </script>
 
 <PageMeta
-	title="{t('tools.username.name')} — FreeOSINT-UI"
+	title="{t('tools.username.name')} — DetectiveFramework"
 	description={t('username.metaDescription')}
 />
 

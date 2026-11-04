@@ -33,7 +33,7 @@ export function findFormat(id) {
 }
 
 /**
- * Safe file name such as `freeosintui-ip-8.8.8.8-20261003-1952.pdf`.
+ * Safe file name such as `detectiveframework-ip-8.8.8.8-20261003-1952.pdf`.
  * @param {Report} report
  * @param {string} extension
  */
@@ -44,7 +44,9 @@ export function reportFilename(report, extension) {
 		.replace(/^[-.]+|[-.]+$/g, '')
 		.slice(0, 60);
 	const stamp = report.generatedAt.slice(0, 16).replace(/-|:/g, '').replace('T', '-');
-	return ['freeosintui', report.tool, slug, stamp].filter(Boolean).join('-') + `.${extension}`;
+	return (
+		['detectiveframework', report.tool, slug, stamp].filter(Boolean).join('-') + `.${extension}`
+	);
 }
 
 /**

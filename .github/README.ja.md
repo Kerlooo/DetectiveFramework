@@ -1,11 +1,16 @@
 <div align="center">
 
 ```
- _____               ___  ____ ___ _   _ _____     _   _ ___
-|  ___| __ ___  ___ / _ \/ ___|_ _| \ | |_   _|   | | | |_ _|
-| |_ | '__/ _ \/ _ \ | | \___ \| ||  \| | | |_____| | | || |
-|  _|| | |  __/  __/ |_| |___) | || |\  | | |_____| |_| || |
-|_|  |_|  \___|\___|\___/|____/___|_| \_| |_|      \___/|___|
+ ____         _                _    _
+|  _ \   ___ | |_   ___   ___ | |_ (_)__   __  ___
+| | | | / _ \| __| / _ \ / __|| __|| |\ \ / / / _ \
+| |_| ||  __/| |_ |  __/| (__ | |_ | | \ V / |  __/
+|____/  \___| \__| \___| \___| \__||_|  \_/   \___|
+ _____                                                       _
+|  ___| _ __   __ _  _ __ ___    ___ __      __  ___   _ __ | | __
+| |_   | '__| / _` || '_ ` _ \  / _ \\ \ /\ / / / _ \ | '__|| |/ /
+|  _|  | |   | (_| || | | | | ||  __/ \ V  V / | (_) || |   |   <
+|_|    |_|    \__,_||_| |_| |_| \___|  \_/\_/   \___/ |_|   |_|\_\
 ```
 
 **ブラウザで動作する、無料でソースが公開された OSINT ツール集。**
@@ -24,11 +29,9 @@
 
 ---
 
-## なぜ FreeOSINT-UI なのか?
+## なぜ DetectiveFramework なのか?
 
-[OSINT-UI](https://osint-ui.com/) はオープンソースインテリジェンス (OSINT) ツールの優れたコレクションですが、無料で使えるのはごく一部で、それらも月に数回までしか利用できません。それ以外はすべてサブスクリプションが必要です。
-
-こうした調査の大半は、有料サービスをまったく必要としません。必要なのは、適切な**無料の公開ソース**と使いやすいインターフェースだけです。FreeOSINT-UI はそれらをひとつにまとめます:
+OSINT 調査の大半は、有料サービスをまったく必要としません。必要なのは、適切な**無料の公開ソース**と使いやすいインターフェースだけです。DetectiveFramework はそれらをひとつにまとめます:
 
 - 🆓 **ずっと無料。** すべてのツールが対象で、公開 API 自体のレート制限以外に制限はありません。
 - 🔒 **ブラウザファースト。** 20 個のツールのうち 15 個は、完全にブラウザ内で動作します。解析するファイルがデバイスの外に出ることはなく、チェックするパスワードがどこかに送信されることもありません (送信されるのはハッシュの 5 文字だけです)。
@@ -72,8 +75,8 @@
 ### フロントエンド
 
 ```sh
-git clone https://github.com/Kerlooo/FreeOSINTUI.git
-cd FreeOSINTUI
+git clone https://github.com/Kerlooo/DetectiveFramework.git
+cd DetectiveFramework
 npm install
 npm run dev
 ```
@@ -166,23 +169,21 @@ backend/
 
 ## 🙏 データソースとクレジット
 
-FreeOSINT-UI は、以下の無料の公開サービスとプロジェクトの上に成り立っています:
+DetectiveFramework は、以下の無料の公開サービスとプロジェクトの上に成り立っています:
 
 [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) (CC BY-SA 4.0) · [XposedOrNot](https://xposedornot.com/) · [Have I Been Pwned – Pwned Passwords](https://haveibeenpwned.com/Passwords) · [Shodan InternetDB](https://internetdb.shodan.io/) · [rdap.org](https://rdap.org/) · [Google Public DNS](https://developers.google.com/speed/public-dns/docs/doh) · [crt.sh](https://crt.sh/) · [Cert Spotter](https://sslmate.com/certspotter/) · [Internet Archive](https://archive.org/) · [ipwho.is](https://ipwho.is/) · [Gravatar](https://gravatar.com/) · [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) · [mempool.space](https://mempool.space/) · [litecoinspace.org](https://litecoinspace.org/) · [Blockscout](https://www.blockscout.com/) · [GitHub REST API](https://docs.github.com/rest) · [AlienVault OTX](https://otx.alienvault.com/) · [StopForumSpam](https://www.stopforumspam.com/) · [Tor Project](https://www.torproject.org/) · [Spamhaus DROP](https://www.spamhaus.org/blocklists/do-not-route-or-peer/) · [abuse.ch URLhaus & ThreatFox](https://abuse.ch/) · [urlscan.io](https://urlscan.io/) · [Common Crawl](https://commoncrawl.org/) · [IEEE Registration Authority](https://standards.ieee.org/products-programs/regauth/)
 
-[OSINT-UI](https://osint-ui.com/) にインスパイアされています。
-
 ## ⚖️ 責任ある利用
 
-FreeOSINT-UI が問い合わせるのは公開ソースだけですが、それでも結果は実在の人物に関わる可能性があります。セキュリティ研究、実施する権限のある調査、自分自身の露出状況の確認といった、正当な目的で使用してください。各データソースの利用規約と、お住まいの国のプライバシー関連法 (GDPR など) を遵守してください。結果は誤っていたり古くなっていたりする可能性があります。証拠としてではなく、検証すべき手がかりとして扱ってください。
+DetectiveFramework が問い合わせるのは公開ソースだけですが、それでも結果は実在の人物に関わる可能性があります。セキュリティ研究、実施する権限のある調査、自分自身の露出状況の確認といった、正当な目的で使用してください。各データソースの利用規約と、お住まいの国のプライバシー関連法 (GDPR など) を遵守してください。結果は誤っていたり古くなっていたりする可能性があります。証拠としてではなく、検証すべき手がかりとして扱ってください。
 
 ## 📜 ライセンス
 
-FreeOSINT-UI は **[Apache License 2.0](LICENSE) と [Commons Clause](https://commonsclause.com/)** のもとで公開されています。
+DetectiveFramework は **[Apache License 2.0](LICENSE) と [Commons Clause](https://commonsclause.com/)** のもとで公開されています。
 
 - ✅ **自由に利用できます。** 個人利用でも業務利用でも、社内での利用も含めて構いません。
 - ✅ **改変・共有できます。** ただし、原作者を明記している [LICENSE](LICENSE) と [NOTICE](../NOTICE) のファイルを保持する必要があります。
-- ❌ **販売はできません。** FreeOSINT-UI そのもの、またはその価値の大部分が FreeOSINT-UI に由来する製品やサービスを、有償で提供することはできません (有償ホスティングや有償サポートを含みます)。
+- ❌ **販売はできません。** DetectiveFramework そのもの、またはその価値の大部分が DetectiveFramework に由来する製品やサービスを、有償で提供することはできません (有償ホスティングや有償サポートを含みます)。
 
 この販売禁止条件があるため、これは OSI 承認のオープンソースライセンスではなく、_ソースアベイラブル_ (source-available) ライセンスです。同梱の WhatsMyName データ (`backend/data/wmn-data.json`) には、独自の CC BY-SA 4.0 ライセンスが引き続き適用されます。
 

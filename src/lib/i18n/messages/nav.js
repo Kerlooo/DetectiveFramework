@@ -6,8 +6,7 @@ export default {
 		tools: 'Tools',
 		language: 'Language',
 		footerAbout:
-			'FreeOSINT-UI — free OSINT tools that run entirely in your browser. Made by kerlo.',
-		inspiredBy: 'Inspired by'
+			'DetectiveFramework — free OSINT tools that run entirely in your browser. Made by kerlo.'
 	},
 	it: {
 		main: 'Principale',
@@ -15,8 +14,7 @@ export default {
 		tools: 'Strumenti',
 		language: 'Lingua',
 		footerAbout:
-			'FreeOSINT-UI — strumenti OSINT gratuiti che funzionano interamente nel tuo browser. Creato da kerlo.',
-		inspiredBy: 'Ispirato a'
+			'DetectiveFramework — strumenti OSINT gratuiti che funzionano interamente nel tuo browser. Creato da kerlo.'
 	},
 	fr: {
 		main: 'Principal',
@@ -24,15 +22,13 @@ export default {
 		tools: 'Outils',
 		language: 'Langue',
 		footerAbout:
-			'FreeOSINT-UI — outils OSINT gratuits qui fonctionnent entièrement dans votre navigateur. Créé par kerlo.',
-		inspiredBy: 'Inspiré de'
+			'DetectiveFramework — outils OSINT gratuits qui fonctionnent entièrement dans votre navigateur. Créé par kerlo.'
 	},
 	ja: {
 		main: 'メイン',
 		home: 'ホーム',
 		tools: 'ツール',
 		language: '言語',
-		footerAbout: 'FreeOSINT-UI — すべてブラウザ内で動作する無料の OSINT ツール。制作: kerlo。',
-		inspiredBy: 'インスピレーション元:'
+		footerAbout: 'DetectiveFramework — すべてブラウザ内で動作する無料の OSINT ツール。制作: kerlo。'
 	}
 };

@@ -134,7 +134,7 @@
 </script>
 
 <PageMeta
-	title="{t('tools.footprint.name')} — FreeOSINT-UI"
+	title="{t('tools.footprint.name')} — DetectiveFramework"
 	description={t('footprint.metaDescription')}
 />
 

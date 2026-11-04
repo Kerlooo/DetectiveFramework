@@ -39,7 +39,7 @@
 </script>
 
 <PageMeta
-	title="{t('tools.timestamp.name')} — FreeOSINT-UI"
+	title="{t('tools.timestamp.name')} — DetectiveFramework"
 	description={t('timestamp.metaDescription')}
 />
 
