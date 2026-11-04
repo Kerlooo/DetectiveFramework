@@ -40,5 +40,8 @@
 		"jspdf": "^4.2.1",
 		"jspdf-autotable": "^5.0.8",
 		"libphonenumber-js": "^1.13.14"
+	},
+	"allowScripts": {
+		"core-js@3.50.0": true
 	}
 }
